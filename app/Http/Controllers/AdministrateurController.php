@@ -57,7 +57,9 @@ class AdministrateurController extends Controller
         $Employeur->nom = $nom; 
         $Employeur->email = $data['emailEmployeur'];  
         $Employeur->entreprise_id = $data['entreprise'];  
-        // $Employeur->status = $data['status'];    
+        if(isset($data['status'])){
+            $Employeur->status = $data['status'];    
+        }
         $Employeur->save();
         return redirect()->back()->with('success', "L'employeur à éte Modifier avec success");
     
